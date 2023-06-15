@@ -8,6 +8,7 @@ const titleControl = document.getElementById('title')
 const contentControl = document.getElementById('content')
 const updateBtn = document.getElementById('updateBtn')
 const submitbtn = document.getElementById('submitbtn')
+const resetBtn = document.getElementById('resetBtn')
 
 let baseUrl = `http://localhost:3000`
 
@@ -25,6 +26,7 @@ let baseUrl = `http://localhost:3000`
                 contentControl.value = data.body;
                 updateBtn.classList.remove('d-none')
                 submitbtn.classList.add('d-none')
+                resetBtn.classList.add('d-none')
             })
     }
 
@@ -36,6 +38,9 @@ let baseUrl = `http://localhost:3000`
             body : contentControl.value
         }
         cl(obj)
+                updateBtn.classList.add('d-none')
+                submitbtn.classList.remove('d-none')
+                resetBtn.classList.remove('d-none')
         makeApiCall('PATCH',updateUrl,JSON.stringify(obj))
             .then(res=>{
                 let data = JSON.parse(res)
@@ -57,6 +62,9 @@ makeApiCall("DELETE",deletUrl)
         
     })
     .catch(cl)
+    .finally(()=>{
+        e.target.reset
+    })
  
 }
 
@@ -107,6 +115,7 @@ makeApiCall('GET',`${baseUrl}/posts`)
         .catch(err=>{
             cl(err)
         })
+        
     
         const onSubmitBtn = (eve) =>{
             eve.preventDefault();
@@ -123,6 +132,9 @@ makeApiCall('GET',`${baseUrl}/posts`)
             .catch(err=>{
                 cl(err)
             }) 
+            .finally(()=>{
+                eve.target.reset();
+            })
         }
 
 
