@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>XHR by Promise</title>
+
+    <style>
+        body{
+            background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); 
+
+        }
+        #postContainer{
+            height: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="bg-primary text-center p-4 text-white mb-4">HTTP XHR CRUD BY PROMISE</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 card mb-4 bg-dark text-white p-4">
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" class="form-control" placeholder="Type Title For Your Post">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea class="form-control" id="content" cols="30" rows="10" placeholder="Type About Your Post"></textarea>
+                    </div>
+                    
+                    <div class="form-group  text-right">
+                        <button class="btn btn-danger" type="reset" id="cancelBtn">Reset</button>
+                        <button class="btn btn-primary" type="submit" id="submitbtn">Create Post</button>
+                        <button class="btn btn-success d-none" type="button" id="updateBtn">Update</button>
+                    </div>
+                </form>
+            </div>
+            <div id="postContainer">
+            
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
